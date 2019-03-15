@@ -70,7 +70,7 @@ public class ShopAdapter extends ArrayAdapter<Product> {
         switch (name) {
             case "Arame":
                 return R.drawable.arame;
-            case "Mangueira amarela":
+            case "Yellow Hose":
                 return R.drawable.mangueiramarela;
             case "Cola quente":
                 return R.drawable.colaquente;
@@ -138,7 +138,7 @@ public class ShopAdapter extends ArrayAdapter<Product> {
                 return R.drawable.laser;
             case "LDR":
                 return R.drawable.ldr;
-            case "LED amarelo":
+            case "Yellow LED":
                 return R.drawable.ledamarela;
             case "LED branco":
                 return R.drawable.ledbranco;
@@ -192,11 +192,11 @@ public class ShopAdapter extends ArrayAdapter<Product> {
                 return R.drawable.peliculaderente;
             case "Peças de dominó":
                 return R.drawable.pecasdomino;
-            case "Pilhas 9V":
+            case "9 Battery":
                 return R.drawable.pilhas9v;
-            case "Pilhas AA 1.5V":
+            case "AA 1_5V Battery":
                 return R.drawable.pilhasaa15v;
-            case "Pilhas AAA 1.5V":
+            case "AAA 1_5V Battery":
                 return R.drawable.pilhasaaa15v;
             case "Pioneses":
                 return R.drawable.pioneses;
