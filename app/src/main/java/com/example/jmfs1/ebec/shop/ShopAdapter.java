@@ -68,6 +68,12 @@ public class ShopAdapter extends ArrayAdapter<Product> {
     private int mapProductToImage(String name) {
 
         switch (name) {
+            case "Arame":
+                return R.drawable.arame;
+            case "Mangueira amarela":
+                return R.drawable.mangueiramarela;
+            case "Cola quente":
+                return R.drawable.colaquente;
             case "Anilhas A":
                 return R.drawable.anilhasa;
             case "Anilhas C":
