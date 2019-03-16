@@ -427,10 +427,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             // Check if team was found
             if (teamData == null) {
-                List<String> core_team_users = Arrays.asList("anavasconcelos", "mariadavid", "dinisbruno", "catarinalopes", "anaoliveira");
-                List<String> topic_group_users = Arrays.asList("rafaelareis", "catarinagomes", "anamoura", "eduardasilva", "jorgemarques");
-                List<String> board_users = Arrays.asList("migueloliveira", "joanacaneco", "franciscabraganca", "anamalta", "ritasardao");
-                List<String> mgmt_users = Arrays.asList("diegohernandez", "bogdankulyk", "jeanbrito", "adrianacosta");
+                List<String> core_team_users = Arrays.asList("renanferreira");
+                List<String> topic_group_users = Arrays.asList("anamoura24");
+                List<String> board_users = Arrays.asList("alexandrevala","catarinalopes");
+                List<String> mgmt_users = Arrays.asList("mateuslima");
 
                 String username = mUser.getUsername();
                 if (username.equals("joaovalente")) {
