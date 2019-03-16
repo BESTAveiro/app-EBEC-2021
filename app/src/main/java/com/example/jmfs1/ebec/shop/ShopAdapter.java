@@ -148,8 +148,6 @@ public class ShopAdapter extends ArrayAdapter<Product> {
                 return R.drawable.ledvermelha;
             case "Wool thread":
                 return R.drawable.la;
-            case "Switch":
-                return R.drawable.microswitch;
             case "d":
                 return R.drawable.molas;
             case "Drinking Straw":
