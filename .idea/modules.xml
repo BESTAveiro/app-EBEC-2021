@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app-ebec2019.iml" filepath="$PROJECT_DIR$/app-ebec2019.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EBEC_Aveiro.iml" filepath="$PROJECT_DIR$/.idea/modules/EBEC_Aveiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/EBEC_Aveiro.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/EBEC_Aveiro.app.iml" />
     </modules>
   </component>
 </project>

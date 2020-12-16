@@ -1,35 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_clock"
-            android:icon="@drawable/clock"
-            android:title="Horário"
-            />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_loja"
-            android:icon="@drawable/store"
-            android:title="Loja" >
-
-        </item>
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_gallery" />
         <item
-            android:id="@+id/nav_pontuacoes"
-            android:icon="@drawable/podium"
-            android:title="Pontuações"
-
-            />
+            android:id="@+id/nav_teams"
+            android:icon="@drawable/ic_menu_list"
+            android:title="@string/menu_teams" />
         <item
-            android:id="@+id/nav_fotos"
-            android:icon="@drawable/parceiros"
-            android:title="Parceiros" />
-
+            android:id="@+id/nav_schedule"
+            android:icon="@drawable/ic_menu_schedule"
+            android:title="@string/menu_schedule" />
         <item
-            android:id="@+id/nav_alertas"
-            android:icon="@drawable/alarm"
-            android:title="Alertas" />
+            android:id="@+id/nav_admin"
+            android:icon="@drawable/ic_baseline_admin"
+            android:title="@string/menu_admin" />
     </group>
-
-
 </menu>
