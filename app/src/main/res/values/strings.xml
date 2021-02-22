@@ -16,8 +16,12 @@
     <string name="email_hint">E-mail</string>
     <string name="password_hint">Password</string>
     <string name="action_signOut">Sign Out</string>
+    <string name="system_theme_preference_value">SYSTEM THEME PREFERENCE</string>
+    <string name="dark_mode">Dark Mode</string>
+
+    <string name="dark_mode_def_value"> MODE_NIGHT_NO </string>
     <string name="menu_schedule">Schedule</string>
-    <string name="menu_teams">Teams</string>
+    <string name="menu_teams">My Team</string>
     <string name="team_design">Team Design</string>
     <string name="case_study">Case Study</string>
     <string name="team_members">Members</string>
@@ -30,4 +34,5 @@
     <string name="msg_subscribe_failed">Subscription Failed</string>
     <string name="msg_token_fmt">Token</string>
     <string name="menu_admin">Admin</string>
+    <string name="menu_best">BEST Aveiro</string>
 </resources>

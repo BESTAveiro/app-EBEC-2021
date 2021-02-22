@@ -35,6 +35,7 @@ public class ScheduleFragment extends Fragment {
     private RecyclerView events_recycler_view;
     private ScheduleListAdapter mAdapter;
     private TextView selected_day;
+    TabLayout day_picker;
 
 
     @Override
@@ -42,13 +43,11 @@ public class ScheduleFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         mViewModel = new ViewModelProvider(this).get(ScheduleViewModel.class);
         View v = inflater.inflate(R.layout.schedule_fragment, container, false);
-        TabLayout day_picker = v.findViewById(R.id.schedule_day_picker);
-
+        day_picker = v.findViewById(R.id.schedule_day_picker);
         selected_day = v.findViewById(R.id.selected_day);
         events_recycler_view = (RecyclerView)v.findViewById(R.id.events_recycler_view);
 
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference schedule = db.child("schedule");
+
         mViewModel.getDays().observe(getViewLifecycleOwner(), days->{
             day_picker.removeAllTabs();
             for (Day d: days){
@@ -57,11 +56,13 @@ public class ScheduleFragment extends Fragment {
             }
 
         });
-        
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference schedule = db.child("schedule");
         schedule.addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList<Day> days = new ArrayList<>();
                         for (DataSnapshot day_snapshot: snapshot.getChildren()){
                             Day d = new Day();
                             d.setDayDesignation(day_snapshot.getKey());
@@ -89,7 +90,7 @@ public class ScheduleFragment extends Fragment {
         );
 
 
-       
+
 
         day_picker.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

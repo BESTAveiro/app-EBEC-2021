@@ -113,12 +113,13 @@ public class LoginActivity extends AppCompatActivity {
                     User user = new User();
                     user.setEmail(userSnaphot.child("email").getValue().toString());
                     user.setPassword(userSnaphot.child("password").getValue().toString());
-                    if (userSnaphot.child("admin").getValue(Boolean.class)){
-                        prefs.edit().putBoolean("admin", true).apply();
-                    }
+                    boolean isAdmin = userSnaphot.child("admin").getValue(Boolean.class);
 
+                    prefs.edit().putBoolean("admin", isAdmin).apply();
                     if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+
                         prefs.edit().putBoolean("logged_in", true).apply();
+                        prefs.edit().putString("user_email", user.getEmail()).apply();
                         startApp();
                         found_match=true;
                         break;

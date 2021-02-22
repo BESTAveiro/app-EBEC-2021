@@ -48,8 +48,7 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
         holder.event_time.setText(mCurrent.getTime());
         holder.event_description.setText(mCurrent.getDescription());
         holder.event_description_card.setVisibility(View.GONE);
-        holder.icon_arrow.setImageResource(R.drawable.ic_expand_more);
-        holder.icon_arrow.setOnClickListener(new View.OnClickListener() {
+        holder.event_designation_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (holder.event_description_card.getVisibility() == View.GONE)
@@ -69,8 +68,8 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
     public class ScheduleViewHolder extends RecyclerView.ViewHolder {
         public ScheduleListAdapter mAdapter;
         public TextView event_designation, event_time, event_description;
-        public CardView event_description_card;
-        public ImageView icon_arrow;
+        public CardView event_description_card, event_designation_card;
+
 
         public ScheduleViewHolder(@NonNull View itemView, ScheduleListAdapter adapter) {
             super(itemView);
@@ -80,7 +79,7 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
             event_time = itemView.findViewById(R.id.event_time);
             event_description = itemView.findViewById(R.id.event_description);
             event_description_card = itemView.findViewById(R.id.event_description_card);
-            icon_arrow = itemView.findViewById(R.id.icon_arrow);
+            event_designation_card = itemView.findViewById(R.id.event_designation_card);
             this.mAdapter = adapter;
         }
     }
