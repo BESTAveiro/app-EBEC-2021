@@ -28,7 +28,7 @@
             android:title="@string/menu_admin" />
         <item
             android:id="@+id/nav_sponsors"
-            android:icon="@drawable/ic_baseline_admin"
+            android:icon="@drawable/ic_hand_shake"
             android:title="@string/menu_sponsors" />
     </group>
 </menu>
