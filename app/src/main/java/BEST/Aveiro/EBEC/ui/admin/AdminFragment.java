@@ -52,7 +52,7 @@ public class AdminFragment extends Fragment {
         mAdminViewModel = new ViewModelProvider(this).get(AdminViewModel.class);
         getMessagesToSee();
         mAdminViewModel.getMessageCount().observe(getViewLifecycleOwner(),m->{
-            ChatListAdapter provas_adapter = new ChatListAdapter(getActivity(), topic_count);
+            ChatListAdapter provas_adapter = new ChatListAdapter(getActivity(), topic_count, mMainViewModel);
 
             chat_topic_recycler.setAdapter(provas_adapter);
             chat_topic_recycler.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));

@@ -36,9 +36,10 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.TeamCh
     private Context mContext;
     private HashMap<String, Integer> topics;
     private LayoutInflater mInflater;
+    public MainActivityViewModel mMainViewModel;
 
-
-    public ChatListAdapter(Activity activity, HashMap<String, Integer> list_of_topics){
+    public ChatListAdapter(Activity activity, HashMap<String, Integer> list_of_topics, MainActivityViewModel mViewModel){
+        mMainViewModel =  mViewModel;
         this.mActivity = activity;
         mInflater = LayoutInflater.from(activity.getApplicationContext());
         this.mContext = activity.getApplicationContext();
@@ -56,13 +57,14 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.TeamCh
     public void onBindViewHolder(@NonNull TeamChatHolder holder, int position) {
         String topic = (String) this.topics.keySet().toArray()[position];
         holder.topic.setText(topic);
-        holder.count.setText(topics.get(topic).toString());
 
         NavController navController = Navigation.findNavController(mActivity, R.id.nav_host_fragment);
         holder.admin_topic_chat_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 navController.navigate(R.id.nav_chat);
+                mMainViewModel.setCurrentTopic(topic);
             }
         });
 
@@ -75,13 +77,12 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.TeamCh
 
     public class TeamChatHolder extends RecyclerView.ViewHolder {
         public ChatListAdapter mAdapter;
-        private TextView topic, count;
+        private TextView topic;
         private ConstraintLayout admin_topic_chat_card;
         public TeamChatHolder(@NonNull View itemView, ChatListAdapter adapter) {
             super(itemView);
             this.mAdapter = adapter;
             topic = itemView.findViewById(R.id.chat_team_name);
-            count = itemView.findViewById(R.id.new_message_count);
             admin_topic_chat_card = itemView.findViewById(R.id.admin_topic_chat_card);
         }
     }

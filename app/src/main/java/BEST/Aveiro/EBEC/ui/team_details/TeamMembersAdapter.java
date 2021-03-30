@@ -11,15 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import BEST.Aveiro.EBEC.MainActivity;
+import BEST.Aveiro.EBEC.MainActivityViewModel;
 import BEST.Aveiro.EBEC.R;
 
 public class TeamMembersAdapter extends RecyclerView.Adapter<TeamMembersAdapter.MembersViewHolder> {
     private ArrayList<String> mMembers;
     private LayoutInflater mInflater;
-
-    public TeamMembersAdapter(Context context, ArrayList<String> members) {
+    private String mode;
+    public TeamMembersAdapter(Context context, ArrayList<String> members, String mode) {
         mInflater = LayoutInflater.from(context);
         this.mMembers = members;
+        this.mode = mode;
 
     }
 
@@ -36,6 +39,8 @@ public class TeamMembersAdapter extends RecyclerView.Adapter<TeamMembersAdapter.
     public void onBindViewHolder(@NonNull MembersViewHolder holder, int position) {
         String currentMembers = this.mMembers.get(position);
         holder.mMemberName.setText(currentMembers);
+
+
 
 
     }

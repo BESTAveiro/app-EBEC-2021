@@ -1,5 +1,6 @@
 package BEST.Aveiro.EBEC.ui.team_details;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -26,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import BEST.Aveiro.EBEC.MainActivityViewModel;
 import BEST.Aveiro.EBEC.Objects.Prova;
@@ -42,6 +44,7 @@ public class TeamDetails extends Fragment {
     private TextView mTeamName;
     private TextView mTeamCredits;
     private CardView mProvasCard;
+    private String mode = "LIGHT";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -56,78 +59,86 @@ public class TeamDetails extends Fragment {
 
         mTeamName = root.findViewById(R.id.team_details_name);
         mTeamCredits = root.findViewById(R.id.team_details_credits);
+        mTeamCredits.setVisibility(View.GONE);
         mProvasCard = root.findViewById(R.id.provas_card);
         teamMembersList = root.findViewById(R.id.team_members_recyclerView);
         teamProvasList = root.findViewById(R.id.team_provas_recyclerView);
 
+        // Comparing to see which preference is selected and applying those theme settings
 
         return root;
     }
 
-    public Team updateTeam(){
+
+
+    public Team updateTeam() {
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference usersRef = db.child("teams");
+        DatabaseReference teamsRef = db.child("teams");
         Team temp_team = new Team();
-        usersRef.addValueEventListener (new ValueEventListener() {
+
+        teamsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                System.out.println("TEAM Members "+dataSnapshot.toString());
+                System.out.println("TEAM Members " + dataSnapshot.toString());
                 for (DataSnapshot teamsSnapshot : dataSnapshot.getChildren()) {
                     ArrayList<String> members = new ArrayList<>();
 
-                    for (DataSnapshot team_member : teamsSnapshot.child("members").getChildren()){
+                    for (DataSnapshot team_member : teamsSnapshot.child("members").getChildren()) {
 
-                        System.out.println("TEAM Members "+team_member.toString());
-                        members.add(team_member.getValue().toString());
-                    }
-                    System.out.println("TEAM Members "+members.toString());
-                    if (members.contains(currentUser.getEmail())){
-                        temp_team.setName(teamsSnapshot.child("name").getValue().toString());
-                        temp_team.setCredits(teamsSnapshot.child("credits").getValue(Integer.class));
-                        temp_team.setModality(teamsSnapshot.child("md").getValue().toString());
+                        System.out.println("TEAM Members " + team_member.toString());
 
-                        temp_team.setMembers(members);
+                        members.add(mainViewModel.getUsernameByEmail(team_member.getValue().toString()));
+                        System.out.println("TEAM Members " + members.toString() + team_member.getValue().toString());
+                        if (members.contains(mainViewModel.getUsernameByEmail(currentUser.getEmail()))) {
+                            temp_team.setName(teamsSnapshot.child("name").getValue().toString());
+                            temp_team.setCredits(teamsSnapshot.child("credits").getValue(Integer.class));
+                            temp_team.setModality(teamsSnapshot.child("md").getValue().toString());
 
-                        ArrayList<Prova> competitions = new ArrayList<Prova>();
-                        for (DataSnapshot competition : teamsSnapshot.child("comps").getChildren()){
-                            Prova temp_prova = new Prova();
-                            temp_prova.setName(competition.getKey());
-                            temp_prova.setScore(competition.getValue().toString());
-                            competitions.add(temp_prova);
+                            temp_team.setMembers(members);
+
+                            ArrayList<Prova> competitions = new ArrayList<Prova>();
+                            for (DataSnapshot competition : teamsSnapshot.child("comps").getChildren()) {
+                                Prova temp_prova = new Prova();
+                                temp_prova.setName(competition.getKey());
+                                temp_prova.setScore(competition.getValue().toString());
+                                competitions.add(temp_prova);
+                            }
+                            temp_team.setProvas(competitions);
+                            currentTeam = temp_team;
+                            updateState();
+                            break;
                         }
-                        temp_team.setProvas(competitions);
-                        currentTeam = temp_team;
-                        updateState();
-                        break;
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
 
+                };
+            });
         return temp_team;
-    }
-
-    private void updateState() {
-        mTeamName.setText(currentTeam.getName());
-        TeamMembersAdapter members_adapter = new TeamMembersAdapter(getActivity().getApplicationContext(), currentTeam.getMembers());
-        teamMembersList.setAdapter(members_adapter);
-        mTeamCredits.setText(currentTeam.getCredits() + " Credits");
-        teamMembersList.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        if (currentTeam.getModality().equalsIgnoreCase("TD")){
-            if (mProvasCard.getVisibility()==View.GONE)
-                mProvasCard.setVisibility(View.VISIBLE);
-            TeamProvasAdapter provas_adapter = new TeamProvasAdapter(getActivity().getApplicationContext(), currentTeam.getProvas());
-            teamProvasList.setAdapter(provas_adapter);
-            teamProvasList.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-
-        }else{
-            mProvasCard.setVisibility(View.GONE);
         }
+
+        private void updateState () {
+            mTeamName.setText(currentTeam.getName());
+            TeamMembersAdapter members_adapter = new TeamMembersAdapter(getActivity().getApplicationContext(), currentTeam.getMembers(), mode);
+            teamMembersList.setAdapter(members_adapter);
+            mTeamCredits.setText(currentTeam.getCredits() + " Credits");
+            teamMembersList.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+            if (currentTeam.getModality().equalsIgnoreCase("TD")) {
+                if (mProvasCard.getVisibility() == View.GONE)
+                    mProvasCard.setVisibility(View.VISIBLE);
+                TeamProvasAdapter provas_adapter = new TeamProvasAdapter(getActivity().getApplicationContext(), currentTeam.getProvas());
+                teamProvasList.setAdapter(provas_adapter);
+                teamProvasList.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
+            } else {
+                mProvasCard.setVisibility(View.GONE);
+            }
+        }
+
+
     }
 
-
-}

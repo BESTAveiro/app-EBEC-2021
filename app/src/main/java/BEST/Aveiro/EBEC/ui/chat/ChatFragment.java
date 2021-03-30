@@ -2,6 +2,7 @@ package BEST.Aveiro.EBEC.ui.chat;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +47,7 @@ public class ChatFragment extends Fragment {
 
     DatabaseReference db = FirebaseDatabase.getInstance().getReference();
     DatabaseReference msgRef = db.child("messages");
-
+    SharedPreferences preferences;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -54,6 +56,7 @@ public class ChatFragment extends Fragment {
         mChatViewModel = new ViewModelProvider(this).get(ChatViewModel.class);
         mMainViewModel =  new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
         messages_recycler = root.findViewById(R.id.messages_recycler);
+
 
         composed_message = root.findViewById(R.id.message_compose_text);
         mChatViewModel.getMessageList().observe(getViewLifecycleOwner(),messagesList->{
@@ -66,8 +69,14 @@ public class ChatFragment extends Fragment {
         send_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String message = composed_message.getText().toString();
-                saveMessage(message);
+                if (message.trim().length()>1){
+                    saveMessage(message);
+                    composed_message.setText("");
+
+                }
+
             }
         });
         mMainViewModel.setIsFABVisible(View.GONE);
@@ -101,18 +110,23 @@ public class ChatFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 try{
                     for (DataSnapshot messagesSnapshot : dataSnapshot.getChildren()) {
-                        if (messagesSnapshot.getKey().equalsIgnoreCase(mMainViewModel.getCurrentTeam().getName())){
-                            System.out.println(messagesSnapshot.getKey() + " ------- " + mMainViewModel.getCurrentTeam().getName());
+                        String topic = "_";
+                        if (mMainViewModel.isAdmin())
+                            topic = mMainViewModel.getTopic();
+                        else
+                            topic = mMainViewModel.getCurrentTeam().getName();
+
+                        if (messagesSnapshot.getKey().equalsIgnoreCase(topic)){
                             ArrayList<ChatMessage> message_list = new ArrayList<ChatMessage>();
                             for (DataSnapshot chat_msgs: messagesSnapshot.getChildren()){
                                 ChatMessage temp = new ChatMessage();
                                 temp.setSender(chat_msgs.child("sender").getValue().toString());
                                 temp.setMessage(chat_msgs.child("message").getValue().toString());
-                                System.out.println(chat_msgs.toString());
-                                DatabaseReference mCurrentMessage = msgRef.child(mMainViewModel.getCurrentTeam().getName()).child(chat_msgs.getKey());
-                                mCurrentMessage.child("seen_by").child(mMainViewModel.getCurrentUser().getFirstName()+ " " +mMainViewModel.getCurrentUser().getLastName() ).setValue("");
+                                System.out.println(chat_msgs.toString()+"-------------");
                                 message_list.add(temp);
                             }
+
+                            Log.i("CURRENT_TEAM", message_list.toString());
                             mChatViewModel.setMessageList(message_list);
                             break;
 

@@ -48,4 +48,9 @@
         android:name="BEST.Aveiro.EBEC.ui.chat.ChatFragment"
         android:label="Chat"
         tools:layout="@layout/chat_fragment" />
+    <fragment
+        android:id="@+id/nav_sponsors"
+        android:name="BEST.Aveiro.EBEC.ui.sponsors.Sponsors"
+        android:label="Sponsors"
+        tools:layout="@layout/fragment_sponsors" />
 </navigation>

@@ -62,24 +62,24 @@ public class MainActivity extends AppCompatActivity {
 
         mainViewModel =
                 new ViewModelProvider(this).get(MainActivityViewModel.class); //getActivity()
-
+        mainViewModel.setEmailUsername();
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         getUser(preferences.getString("user_email","_"));
         boolean isAdmin = preferences.getBoolean("admin", false);
-        System.out.println(isAdmin+"..........................................................................");
         Menu menu = navigationView.getMenu();
 
         if (isAdmin){
+            mainViewModel.setAdmin();
             mAppBarConfiguration =   new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.nav_gallery, R.id.nav_teams, R.id.nav_schedule, R.id.nav_admin, R.id.nav_best)
+                    R.id.nav_home, R.id.nav_gallery, R.id.nav_teams, R.id.nav_schedule, R.id.nav_admin, R.id.nav_best, R.id.nav_sponsors)
                     .setDrawerLayout(drawer)
                     .build();
             MenuItem nav_admin = menu.findItem(R.id.nav_admin);
             nav_admin.setVisible(true);
         }else{
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.nav_gallery, R.id.nav_teams, R.id.nav_schedule, R.id.nav_best, R.id.nav_admin)
+                    R.id.nav_home, R.id.nav_gallery, R.id.nav_teams, R.id.nav_schedule, R.id.nav_best, R.id.nav_sponsors, R.id.nav_admin)
                     .setDrawerLayout(drawer)
                     .build();
             MenuItem menuOpen = menu.findItem(R.id.nav_admin);
@@ -198,15 +198,7 @@ public class MainActivity extends AppCompatActivity {
                     channelName, NotificationManager.IMPORTANCE_LOW));
         }
 
-        // If a notification message is tapped, any data accompanying the notification
-        // message is available in the intent extras. In this sample the launcher
-        // intent is fired when the notification is tapped, so any accompanying data would
-        // be handled here. If you want a different intent fired, set the click_action
-        // field of the notification message to the desired intent. The launcher intent
-        // is used when no click_action is specified.
-        //
-        // Handle possible data accompanying notification message.
-        // [START handle_data_extras]
+
         if (getIntent().getExtras() != null) {
             for (String key : getIntent().getExtras().keySet()) {
                 Object value = getIntent().getExtras().get(key);
@@ -216,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
         // [END handle_data_extras]
 
 
-        Log.d("Notifications", "Subscribing to weather topic");
         // [START subscribe_topics]
         FirebaseMessaging.getInstance().subscribeToTopic("ebec")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -227,10 +218,9 @@ public class MainActivity extends AppCompatActivity {
                             msg = getString(R.string.msg_subscribe_failed);
                         }
                         Log.d("Notifications", msg);
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+
                     }
                 });
-        // [END subscribe_topics]
 
 
         FirebaseMessaging.getInstance().getToken()
@@ -273,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(log_in);
                 break;
             case R.id.action_darkmode:
-
                 final String[] darkModeValues = getResources().getStringArray(R.array.dark_mode_values);
                 // The apps theme is decided depending upon the saved preferences on app startup
                 String pref = preferences
@@ -281,14 +270,13 @@ public class MainActivity extends AppCompatActivity {
                 // Comparing to see which preference is selected and applying those theme settings
 
                 if (pref.equals(darkModeValues[2])) {
-                    Toast.makeText(getApplicationContext(), "MODE 1", Toast.LENGTH_SHORT).show();
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     preferences.edit().putString(getString(R.string.dark_mode), "MODE_NIGHT_NO").commit();
+                    mainViewModel.setMode("LIGHT");
                 }else{
-                    Toast.makeText(getApplicationContext(), "MODE 2", Toast.LENGTH_SHORT).show();
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
                     preferences.edit().putString(getString(R.string.dark_mode), "MODE_NIGHT_YES").commit();
+                    mainViewModel.setMode("DARK");
                 }
 
         }

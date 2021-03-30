@@ -35,4 +35,7 @@
     <string name="msg_token_fmt">Token</string>
     <string name="menu_admin">Admin</string>
     <string name="menu_best">BEST Aveiro</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_sponsors">Sponsors</string>
 </resources>

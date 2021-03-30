@@ -7,24 +7,16 @@
     tools:context=".ui.BEST.best" >
 
 
-    <Button
-        android:id="@+id/button_fb"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/partners_textView"
+        android:layout_width="101dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="FB"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <Button
-        android:id="@+id/button_insta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="Instagram"
+        android:layout_marginTop="20dp"
+        android:text="Partners"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_fb" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_lk" />
 
     <Button
         android:id="@+id/button_lk"
@@ -35,6 +27,30 @@
         app:layout_constraintEnd_toEndOf="@+id/button_fb"
         app:layout_constraintStart_toStartOf="@+id/button_fb"
         app:layout_constraintTop_toBottomOf="@+id/button_fb" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="118dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/uua_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/partners_textView"
+        app:layout_constraintTop_toBottomOf="@+id/partners_textView" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="296dp"
+        android:layout_height="166dp"
+        android:layout_marginTop="8dp"
+        android:background="#DCDCDC"
+        android:backgroundTint="#DCDCDC"
+        android:src="@drawable/ebec"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_flr"
@@ -47,6 +63,35 @@
         app:layout_constraintTop_toTopOf="@+id/button_lk" />
 
     <Button
+        android:id="@+id/button_tt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Twitter"
+        app:layout_constraintEnd_toEndOf="@+id/button_web"
+        app:layout_constraintStart_toStartOf="@+id/button_web"
+        app:layout_constraintTop_toTopOf="@+id/button_lk" />
+
+    <Button
+        android:id="@+id/button_fb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Facebook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="129dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ipdj_logo"
+        app:layout_constraintEnd_toEndOf="@+id/partners_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/partners_textView" />
+
+    <Button
         android:id="@+id/button_web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,53 +100,13 @@
         app:layout_constraintStart_toEndOf="@+id/button_fb"
         app:layout_constraintTop_toTopOf="@+id/button_fb" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="296dp"
-        android:layout_height="166dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/ebec"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="180dp"
-        android:layout_height="185dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ipdj_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/partners_textView" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="180dp"
-        android:layout_height="185dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/uua_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/partners_textView" />
-
-    <TextView
-        android:id="@+id/partners_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Parceiros"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_lk" />
-
     <Button
-        android:id="@+id/button_tt"
+        android:id="@+id/button_insta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Twitter"
-        app:layout_constraintEnd_toEndOf="@+id/button_web"
-        app:layout_constraintStart_toStartOf="@+id/button_web"
-        app:layout_constraintTop_toTopOf="@+id/button_lk" />
+        android:layout_marginEnd="32dp"
+        android:text="Instagram"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_fb" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

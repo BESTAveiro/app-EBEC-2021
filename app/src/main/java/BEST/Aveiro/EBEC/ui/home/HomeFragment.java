@@ -23,7 +23,7 @@ import BEST.Aveiro.EBEC.Objects.User;
 import BEST.Aveiro.EBEC.R;
 
 public class HomeFragment extends Fragment {
-    private TextView ongoing, nextUp;
+    private TextView ongoing, nextUp, nextTime;
     private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         ongoing = root.findViewById(R.id.ongoingName);
         nextUp = root.findViewById(R.id.nextName);
+        nextTime = root.findViewById(R.id.nextTime);
         getEvents();
 
         return root;
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ongoing.setText(dataSnapshot.child("ongoing").getValue().toString());;
                 nextUp.setText(dataSnapshot.child("next").getValue().toString());
+                nextTime.setText(dataSnapshot.child("next_time").getValue().toString());
 
             }
 
