@@ -13,6 +13,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import BEST.Aveiro.EBEC.Objects.Day;
@@ -28,6 +30,12 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
         mInflater = LayoutInflater.from(context);
         this.mEvents = events;
         this.mContext = context;
+        Collections.sort(this.mEvents, new Comparator<Event>() {
+            @Override
+            public int compare(Event e1, Event e2) {
+                return Integer.compare(e1.order, e2.order);
+            }
+        });
         Log.i("Events 2", String.valueOf(events));
 
     }

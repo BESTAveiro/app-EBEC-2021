@@ -29,4 +29,10 @@ public class Event {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public int order;
+
+    public void setOrder(Integer order) {
+        this.order= order;
+    }
 }

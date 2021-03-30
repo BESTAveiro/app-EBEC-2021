@@ -67,9 +67,13 @@ public class ScheduleFragment extends Fragment {
                             Day d = new Day();
                             d.setDayDesignation(day_snapshot.getKey());
                             d.setDate(day_snapshot.child("date").getValue(String.class));
+
                             ArrayList<Event> events_list = new ArrayList<>();
                             for (DataSnapshot event: day_snapshot.child("events").getChildren()){
                                 Event e = new Event();
+
+                                e.setOrder(event.child("order").getValue(Integer.class));
+
                                 e.setDesignation(event.getKey());
                                 e.setTime(event.child("time").getValue(String.class));
                                 e.setDescription(event.child("description").getValue(String.class));
