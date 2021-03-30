@@ -26,7 +26,7 @@ public class ScheduleViewModel extends ViewModel {
         if (!days_name.contains(d.getDayDesignation()))
             temp_days.add(d);
         days.setValue(temp_days);
-        Log.i("NEW VALUES", days.getValue().toString());
+
     }
 
     public MutableLiveData<List<Day>> getDays(){

@@ -36,7 +36,6 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
                 return Integer.compare(e1.order, e2.order);
             }
         });
-        Log.i("Events 2", String.valueOf(events));
 
     }
 
@@ -44,14 +43,13 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
     @Override
     public ScheduleListAdapter.ScheduleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.event_item, parent, false);
-        Log.i("Events 3", String.valueOf(mEvents));
+
         return new ScheduleViewHolder(mItemView, this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ScheduleViewHolder holder, int position) {
         Event mCurrent = mEvents.get(position);
-        Log.i("Current Event", String.valueOf(mCurrent));
         holder.event_designation.setText(mCurrent.getDesignation());
         holder.event_time.setText(mCurrent.getTime());
         holder.event_description.setText(mCurrent.getDescription());
@@ -81,7 +79,6 @@ public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapte
 
         public ScheduleViewHolder(@NonNull View itemView, ScheduleListAdapter adapter) {
             super(itemView);
-            Log.i("Created View holder", "ScheduleViewHolder");
 
             event_designation = itemView.findViewById(R.id.event_designation);
             event_time = itemView.findViewById(R.id.event_time);

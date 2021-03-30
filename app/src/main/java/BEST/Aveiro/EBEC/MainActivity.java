@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         if (getIntent().getExtras() != null) {
             for (String key : getIntent().getExtras().keySet()) {
                 Object value = getIntent().getExtras().get(key);
-                Log.d("Notifications", "Key: " + key + " Value: " + value);
+
             }
         }
         // [END handle_data_extras]
@@ -217,7 +217,6 @@ public class MainActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             msg = getString(R.string.msg_subscribe_failed);
                         }
-                        Log.d("Notifications", msg);
 
                     }
                 });
@@ -228,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
                         if (!task.isSuccessful()) {
-                            Log.w("Notifications", "Fetching FCM registration token failed", task.getException());
+
                             return;
                         }
 
@@ -237,7 +236,6 @@ public class MainActivity extends AppCompatActivity {
 
                         // Log and toast
                         String msg = "Token " + token;
-                        Log.d("Notifications", msg);
 
                     }
                 });

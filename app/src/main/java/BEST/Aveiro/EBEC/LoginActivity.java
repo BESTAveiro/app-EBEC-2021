@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                     attemptLogin(email.toString().trim(), password.toString().trim());
                 } else {
                     Toast.makeText(getApplicationContext(), "Invalid Values For Password or Email", Toast.LENGTH_LONG).show();
-                    Log.i("Login: " , email.toString() + ":"+ password.toString());
+
                 }
 
             }

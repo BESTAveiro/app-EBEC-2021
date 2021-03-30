@@ -126,7 +126,7 @@ public class ChatFragment extends Fragment {
                                 message_list.add(temp);
                             }
 
-                            Log.i("CURRENT_TEAM", message_list.toString());
+
                             mChatViewModel.setMessageList(message_list);
                             break;
 

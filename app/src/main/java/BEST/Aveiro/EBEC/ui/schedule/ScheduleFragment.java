@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +50,7 @@ public class ScheduleFragment extends Fragment {
         mViewModel.getDays().observe(getViewLifecycleOwner(), days->{
             day_picker.removeAllTabs();
             for (Day d: days){
-                //Log.i("Tab Designation", String.valueOf(d.getDayDesignation()));
+
                 day_picker.addTab(day_picker.newTab().setText(d.getDayDesignation()));
             }
 
@@ -80,9 +79,9 @@ public class ScheduleFragment extends Fragment {
                                 events_list.add(e);
                             }
                             d.setEvents(events_list);
-                            //Log.i("Added day", d.getDayDesignation());
+
                             mViewModel.addDay(d);
-                            Log.i("New Day", String.valueOf(mViewModel.getDays().getValue()));
+
                         }
                     }
 
