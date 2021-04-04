@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.BEST;
+package best.Aveiro.EBEC.ui.best;
 
 import androidx.lifecycle.ViewModel;
 

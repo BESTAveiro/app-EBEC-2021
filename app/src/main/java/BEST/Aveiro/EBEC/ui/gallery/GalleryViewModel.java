@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.gallery;
+package best.Aveiro.EBEC.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

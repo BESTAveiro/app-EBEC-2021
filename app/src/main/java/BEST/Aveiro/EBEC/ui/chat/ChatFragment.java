@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.chat;
+package best.Aveiro.EBEC.ui.chat;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -27,15 +27,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import BEST.Aveiro.EBEC.MainActivity;
-import BEST.Aveiro.EBEC.MainActivityViewModel;
-import BEST.Aveiro.EBEC.Objects.ChatMessage;
-import BEST.Aveiro.EBEC.Objects.Day;
-import BEST.Aveiro.EBEC.Objects.Prova;
-import BEST.Aveiro.EBEC.Objects.Team;
-import BEST.Aveiro.EBEC.Objects.User;
-import BEST.Aveiro.EBEC.R;
-import BEST.Aveiro.EBEC.ui.team_details.TeamProvasAdapter;
+import best.Aveiro.EBEC.MainActivity;
+import best.Aveiro.EBEC.MainActivityViewModel;
+import best.Aveiro.EBEC.Objects.ChatMessage;
+import best.Aveiro.EBEC.Objects.Day;
+import best.Aveiro.EBEC.Objects.Prova;
+import best.Aveiro.EBEC.Objects.Team;
+import best.Aveiro.EBEC.Objects.User;
+import best.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.ui.team_details.TeamProvasAdapter;
 
 public class ChatFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.BEST;
+package best.Aveiro.EBEC.ui.best;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.R;
 
 public class best extends Fragment {
 

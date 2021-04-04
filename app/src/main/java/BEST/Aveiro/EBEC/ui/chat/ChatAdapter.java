@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.chat;
+package best.Aveiro.EBEC.ui.chat;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import BEST.Aveiro.EBEC.Objects.ChatMessage;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.Objects.ChatMessage;
+import best.Aveiro.EBEC.R;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MessageViewHolder>  {
     private Context mContext;

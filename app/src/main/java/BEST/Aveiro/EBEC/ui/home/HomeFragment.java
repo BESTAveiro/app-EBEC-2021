@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.home;
+package best.Aveiro.EBEC.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,8 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import BEST.Aveiro.EBEC.Objects.User;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.Objects.User;
+import best.Aveiro.EBEC.R;
 
 public class HomeFragment extends Fragment {
     private TextView ongoing, nextUp, nextTime;

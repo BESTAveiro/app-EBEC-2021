@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC;
+package best.Aveiro.EBEC;
 
 import android.view.View;
 
@@ -14,8 +14,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-import BEST.Aveiro.EBEC.Objects.Team;
-import BEST.Aveiro.EBEC.Objects.User;
+import best.Aveiro.EBEC.Objects.Team;
+import best.Aveiro.EBEC.Objects.User;
 
 public class MainActivityViewModel extends ViewModel {
 
@@ -86,16 +86,15 @@ public class MainActivityViewModel extends ViewModel {
                             @Override
                             public void onDataChange(DataSnapshot userSnapshot) {
                                 for (DataSnapshot usersSnapshot : userSnapshot.getChildren()) {
-                                    boolean isEqual = team_member.getValue().toString().equals(usersSnapshot.child("email").getValue().toString());
 
-                                    if (isEqual) {
+
                                         String name_1 = usersSnapshot.child("first_name").getValue().toString();
                                         String name_2 = usersSnapshot.child("last_name").getValue().toString();
                                         String final_name = name_1 + " " + name_2;
                                         email_username.put(team_member.getValue().toString(), final_name);
                                         System.out.println(email_username.toString());
                                         break;
-                                    }
+
                                 }
                             }
 

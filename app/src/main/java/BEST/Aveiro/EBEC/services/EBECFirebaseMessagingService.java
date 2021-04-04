@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.services;
+package best.Aveiro.EBEC.services;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -17,8 +17,8 @@ import androidx.work.Worker;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import BEST.Aveiro.EBEC.MainActivity;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.MainActivity;
+import best.Aveiro.EBEC.R;
 
 public class EBECFirebaseMessagingService extends FirebaseMessagingService {
 

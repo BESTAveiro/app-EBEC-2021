@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.schedule;
+package best.Aveiro.EBEC.ui.schedule;
 
 import android.content.Context;
 import android.util.Log;
@@ -17,9 +17,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import BEST.Aveiro.EBEC.Objects.Day;
-import BEST.Aveiro.EBEC.Objects.Event;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.Objects.Day;
+import best.Aveiro.EBEC.Objects.Event;
+import best.Aveiro.EBEC.R;
 
 public class ScheduleListAdapter extends RecyclerView.Adapter<ScheduleListAdapter.ScheduleViewHolder> {
     private ArrayList<Event> mEvents;

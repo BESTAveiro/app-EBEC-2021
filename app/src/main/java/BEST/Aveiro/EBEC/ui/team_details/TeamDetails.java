@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.team_details;
+package best.Aveiro.EBEC.ui.team_details;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
@@ -29,11 +29,11 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import BEST.Aveiro.EBEC.MainActivityViewModel;
-import BEST.Aveiro.EBEC.Objects.Prova;
-import BEST.Aveiro.EBEC.Objects.Team;
-import BEST.Aveiro.EBEC.Objects.User;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.MainActivityViewModel;
+import best.Aveiro.EBEC.Objects.Prova;
+import best.Aveiro.EBEC.Objects.Team;
+import best.Aveiro.EBEC.Objects.User;
+import best.Aveiro.EBEC.R;
 
 public class TeamDetails extends Fragment {
     private MainActivityViewModel mainViewModel;
@@ -79,37 +79,32 @@ public class TeamDetails extends Fragment {
         teamsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-                System.out.println("TEAM Members " + dataSnapshot.toString());
-                for (DataSnapshot teamsSnapshot : dataSnapshot.getChildren()) {
+                System.out.println("TEAM Members ++++++++++" + mainViewModel.getCurrentUser().getTeamName());
+                    DataSnapshot teamsSnapshot = dataSnapshot.child(mainViewModel.getCurrentUser().getTeamName());
                     ArrayList<String> members = new ArrayList<>();
-
                     for (DataSnapshot team_member : teamsSnapshot.child("members").getChildren()) {
 
-                        System.out.println("TEAM Members " + team_member.toString());
+                        members.add(team_member.getValue().toString());
+                        System.out.println("TEAM Members ++++++++++" + members.toString() + team_member.getValue().toString());
+                        temp_team.setName(teamsSnapshot.child("name").getValue().toString());
+                        temp_team.setCredits(teamsSnapshot.child("credits").getValue(Integer.class));
+                        temp_team.setModality(teamsSnapshot.child("md").getValue().toString());
 
-                        members.add(mainViewModel.getUsernameByEmail(team_member.getValue().toString()));
-                        System.out.println("TEAM Members " + members.toString() + team_member.getValue().toString());
-                        if (members.contains(mainViewModel.getUsernameByEmail(currentUser.getEmail()))) {
-                            temp_team.setName(teamsSnapshot.child("name").getValue().toString());
-                            temp_team.setCredits(teamsSnapshot.child("credits").getValue(Integer.class));
-                            temp_team.setModality(teamsSnapshot.child("md").getValue().toString());
+                        temp_team.setMembers(members);
 
-                            temp_team.setMembers(members);
-
-                            ArrayList<Prova> competitions = new ArrayList<Prova>();
-                            for (DataSnapshot competition : teamsSnapshot.child("comps").getChildren()) {
-                                Prova temp_prova = new Prova();
-                                temp_prova.setName(competition.getKey());
-                                temp_prova.setScore(competition.getValue().toString());
-                                competitions.add(temp_prova);
-                            }
-                            temp_team.setProvas(competitions);
-                            currentTeam = temp_team;
-                            updateState();
-                            break;
+                        ArrayList<Prova> competitions = new ArrayList<Prova>();
+                        for (DataSnapshot competition : teamsSnapshot.child("comps").getChildren()) {
+                            Prova temp_prova = new Prova();
+                            temp_prova.setName(competition.getKey());
+                            temp_prova.setScore(competition.getValue().toString());
+                            competitions.add(temp_prova);
                         }
-                    }
+                        temp_team.setProvas(competitions);
+                        currentTeam = temp_team;
+                        updateState();
+
+
+
                 }
             }
 

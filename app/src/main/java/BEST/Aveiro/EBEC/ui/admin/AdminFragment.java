@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.admin;
+package best.Aveiro.EBEC.ui.admin;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -24,11 +24,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import BEST.Aveiro.EBEC.MainActivityViewModel;
-import BEST.Aveiro.EBEC.Objects.ChatMessage;
-import BEST.Aveiro.EBEC.R;
-import BEST.Aveiro.EBEC.ui.chat.ChatAdapter;
-import BEST.Aveiro.EBEC.ui.chat.ChatViewModel;
+import best.Aveiro.EBEC.MainActivityViewModel;
+import best.Aveiro.EBEC.Objects.ChatMessage;
+import best.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.ui.chat.ChatAdapter;
+import best.Aveiro.EBEC.ui.chat.ChatViewModel;
 
 public class AdminFragment extends Fragment {
 

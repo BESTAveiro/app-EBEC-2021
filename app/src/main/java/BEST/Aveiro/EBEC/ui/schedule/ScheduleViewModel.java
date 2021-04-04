@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.schedule;
+package best.Aveiro.EBEC.ui.schedule;
 
 import android.util.Log;
 
@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import BEST.Aveiro.EBEC.Objects.Day;
+import best.Aveiro.EBEC.Objects.Day;
 
 public class ScheduleViewModel extends ViewModel {
     private MutableLiveData<List<Day>>  days = new MutableLiveData<List<Day>>(new ArrayList<Day>());

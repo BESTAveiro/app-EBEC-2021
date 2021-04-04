@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.services;
+package best.Aveiro.EBEC.services;
 
 import android.content.Context;
 import android.util.Log;

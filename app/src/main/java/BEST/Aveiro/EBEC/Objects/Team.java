@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.Objects;
+package best.Aveiro.EBEC.Objects;
 
 import java.util.ArrayList;
 
@@ -49,5 +49,6 @@ public class Team {
     public void setMembers(ArrayList<String> members) {
         this.members = members;
     }
+    public Team(String name){this.name = name;};
     public Team(){};
 }

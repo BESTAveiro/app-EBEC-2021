@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC;
+package best.Aveiro.EBEC;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("BEST.Aveiro.EBEC", appContext.getPackageName());
+        assertEquals("best.Aveiro.EBEC", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.Objects;
+package best.Aveiro.EBEC.Objects;
 
 public class ChatMessage {
     private String topic;

@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC;
+package best.Aveiro.EBEC;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import BEST.Aveiro.EBEC.Objects.User;
+import best.Aveiro.EBEC.Objects.User;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

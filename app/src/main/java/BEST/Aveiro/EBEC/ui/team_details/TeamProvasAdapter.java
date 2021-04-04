@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.team_details;
+package best.Aveiro.EBEC.ui.team_details;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,9 +18,9 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import BEST.Aveiro.EBEC.Objects.Prova;
-import BEST.Aveiro.EBEC.Objects.Team;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.Objects.Prova;
+import best.Aveiro.EBEC.Objects.Team;
+import best.Aveiro.EBEC.R;
 
 
 public class TeamProvasAdapter extends RecyclerView.Adapter<TeamProvasAdapter.ProvasViewHolder> {

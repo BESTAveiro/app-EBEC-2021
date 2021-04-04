@@ -1,9 +1,15 @@
-package BEST.Aveiro.EBEC.Objects;
+package best.Aveiro.EBEC.Objects;
 
 public class User {
-    private String email, first_name, last_name, password;
+    private String email, first_name, last_name, password, team;
     private Long id;
 
+    public void setTeamName(String _name){
+        this.team = _name;
+    }
+    public String getTeamName(){
+        return this.team;
+    }
 
     public String getEmail() {
         return email;

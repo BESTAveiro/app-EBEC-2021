@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC;
+package best.Aveiro.EBEC;
 
 import org.junit.Test;
 

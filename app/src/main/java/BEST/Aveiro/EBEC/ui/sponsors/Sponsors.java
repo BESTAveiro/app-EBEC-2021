@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.sponsors;
+package best.Aveiro.EBEC.ui.sponsors;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.R;
 
 public class Sponsors extends Fragment {
 

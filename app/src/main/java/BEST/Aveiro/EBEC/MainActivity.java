@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC;
+package best.Aveiro.EBEC;
 
 import android.app.MediaRouteButton;
 import android.app.NotificationChannel;
@@ -40,9 +40,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 
-import BEST.Aveiro.EBEC.Objects.Prova;
-import BEST.Aveiro.EBEC.Objects.Team;
-import BEST.Aveiro.EBEC.Objects.User;
+import best.Aveiro.EBEC.Objects.Prova;
+import best.Aveiro.EBEC.Objects.Team;
+import best.Aveiro.EBEC.Objects.User;
 
 public class MainActivity extends AppCompatActivity {
     private SharedPreferences preferences;
@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         user.setFirstName(userSnaphot.child("first_name").getValue().toString());
                         user.setLastName(userSnaphot.child("last_name").getValue().toString());
                         user.setId(userSnaphot.child("id").getValue(Long.class));
+                        user.setTeamName(userSnaphot.child("team").getValue().toString());
                         if (user.getEmail().equals(email)) {
                             mainViewModel.setCurrentUser(user);
                             getTeam(email);

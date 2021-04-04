@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.admin;
+package best.Aveiro.EBEC.ui.admin;
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,9 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import BEST.Aveiro.EBEC.MainActivityViewModel;
-import BEST.Aveiro.EBEC.Objects.ChatMessage;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.MainActivityViewModel;
+import best.Aveiro.EBEC.Objects.ChatMessage;
+import best.Aveiro.EBEC.R;
 
 
 public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.TeamChatHolder>  {

@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.team_details;
+package best.Aveiro.EBEC.ui.team_details;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import BEST.Aveiro.EBEC.MainActivity;
-import BEST.Aveiro.EBEC.MainActivityViewModel;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.MainActivity;
+import best.Aveiro.EBEC.MainActivityViewModel;
+import best.Aveiro.EBEC.R;
 
 public class TeamMembersAdapter extends RecyclerView.Adapter<TeamMembersAdapter.MembersViewHolder> {
     private ArrayList<String> mMembers;

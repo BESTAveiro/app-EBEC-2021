@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.schedule;
+package best.Aveiro.EBEC.ui.schedule;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -24,9 +24,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import BEST.Aveiro.EBEC.Objects.Day;
-import BEST.Aveiro.EBEC.Objects.Event;
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.Objects.Day;
+import best.Aveiro.EBEC.Objects.Event;
+import best.Aveiro.EBEC.R;
 
 public class ScheduleFragment extends Fragment {
 

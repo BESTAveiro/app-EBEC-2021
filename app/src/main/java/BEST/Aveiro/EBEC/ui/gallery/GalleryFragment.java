@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.gallery;
+package best.Aveiro.EBEC.ui.gallery;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import BEST.Aveiro.EBEC.R;
+import best.Aveiro.EBEC.R;
 
 public class GalleryFragment extends Fragment {
 

@@ -1,11 +1,11 @@
-package BEST.Aveiro.EBEC.ui.chat;
+package best.Aveiro.EBEC.ui.chat;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import BEST.Aveiro.EBEC.Objects.ChatMessage;
+import best.Aveiro.EBEC.Objects.ChatMessage;
 
 public class ChatViewModel extends ViewModel {
     private MutableLiveData<ArrayList<ChatMessage>> messages = new MutableLiveData<ArrayList<ChatMessage>>();

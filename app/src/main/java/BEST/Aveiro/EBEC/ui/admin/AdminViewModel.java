@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.ui.admin;
+package best.Aveiro.EBEC.ui.admin;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import BEST.Aveiro.EBEC.Objects.ChatMessage;
+import best.Aveiro.EBEC.Objects.ChatMessage;
 
 public class AdminViewModel extends ViewModel {
     private MutableLiveData<HashMap<String, Integer>> message_count = new MutableLiveData<HashMap<String, Integer>>();

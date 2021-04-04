@@ -1,4 +1,4 @@
-package BEST.Aveiro.EBEC.Objects;
+package best.Aveiro.EBEC.Objects;
 
 import java.util.ArrayList;
 
